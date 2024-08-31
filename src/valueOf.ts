@@ -1,1 +1,3 @@
-export type ValueOf<Target> = Target extends any ? Target[keyof Target] : never
+import type { KeyOf } from './keyOf'
+
+export type ValueOf<Target> = Target extends any ? Target[KeyOf<Target>] : never
