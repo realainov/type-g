@@ -25,7 +25,7 @@ type _Essential<
 
 type Essential<Target, Path extends PathOf<Target>> = [Path] extends [never]
   ? Target
-  : Target extends any[]
+  : Target extends readonly any[]
     ? { [K in keyof Target]: _Essential<Target, K, Path> }
     : Target extends object
       ? Normalize<
